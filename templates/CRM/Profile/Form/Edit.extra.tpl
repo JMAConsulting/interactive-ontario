@@ -135,12 +135,6 @@ if (cj("input[id='custom_15_Other']").is(':checked'))
     cj('#editrow-custom_32').show();
 else
     cj('#editrow-custom_32').hide();
-
-
-
-
-
-
 });
 </script>
 {/literal}

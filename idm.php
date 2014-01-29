@@ -1,5 +1,6 @@
 <?php
-define('SMART_GROUP_NAME', 'Claimed');
+define('SMART_GROUP', 'Claimed');
+define('CLAIMED_REL', 11);
 
 require_once 'idm.civix.php';
 
@@ -23,7 +24,13 @@ function idm_civicrm_xmlMenu(&$files) {
  * Implementation of hook_civicrm_install
  */
 function idm_civicrm_install() {
-  return _idm_civix_civicrm_install();
+  _idm_civix_civicrm_install();
+  $smarty = CRM_Core_Smarty::singleton();
+  $config = CRM_Core_Config::singleton();
+  $data = $smarty->fetch($config->extensionsDir . DIRECTORY_SEPARATOR . 'biz.jmaconsulting.idm/sql/civicrm_msg_template.tpl');
+  file_put_contents($config->uploadDir . "civicrm_data.sql", $data);
+  CRM_Utils_File::sourceSQLFile(CIVICRM_DSN, $config->uploadDir . "civicrm_data.sql");
+  return TRUE;
 }
 
 /**
@@ -78,7 +85,7 @@ function idm_civicrm_aclGroup( $type, $contactID, $tableName, &$allGroups, &$cur
     $currentGroups = $allGroups;
     $smartGroups = CRM_Contact_BAO_GroupContactCache::contactGroup($contactID);
     $titles = explode(', ', $smartGroups['groupTitle']);
-    if (!in_array(SMART_GROUP_NAME, $titles)) {
+    if (!in_array(SMART_GROUP, $titles)) {
       unset($currentGroups[13]);
     }
     $currentGroups = array_keys($currentGroups);
