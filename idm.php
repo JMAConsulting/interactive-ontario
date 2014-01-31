@@ -90,3 +90,21 @@ function idm_civicrm_aclGroup( $type, $contactID, $tableName, &$allGroups, &$cur
     $currentGroups = array_keys($currentGroups);
   }
 }
+
+
+function idm_civicrm_links( $op, $objectName, $objectId, &$links ) {
+  if ($objectName == 'Contact' && $op == 'view.contact.userDashBoard') {
+    $links[0] = array(
+      'name' => 'View',
+      'url' => 'civicrm/contact/view',
+      'qs' => 'action=view&reset=1&cid=%%cbid%%',
+      'title' => 'View this contact',
+    );
+    $links[1] = array(
+      'name' => 'Edit',
+      'url' => 'civicrm/profile/edit',
+      'qs' => 'gid=13&reset=1&id=%%cbid%%',
+      'title' => 'Edit this contact',
+    );
+  }
+}
