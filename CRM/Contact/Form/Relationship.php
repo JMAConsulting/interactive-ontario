@@ -717,8 +717,7 @@ class CRM_Contact_Form_Relationship extends CRM_Core_Form {
       $sendTemplateParams['toName'] = $displayName;
       $sendTemplateParams['toEmail'] = $email;
       $sendTemplateParams['autoSubmitted'] = TRUE;
-      $subject = 'Has claimed an org';
-      $this->assign( 'message', 'Some custom message' );
+      $subject = 'Thank you for your participation!';
       $this->assign( 'claim_subject', $subject );
       CRM_Core_BAO_MessageTemplates::sendTemplate($sendTemplateParams);
     }
