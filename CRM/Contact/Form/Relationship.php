@@ -719,7 +719,7 @@ class CRM_Contact_Form_Relationship extends CRM_Core_Form {
       $sendTemplateParams['autoSubmitted'] = TRUE;
       $subject = 'Thank you for your participation!';
       $this->assign( 'claim_subject', $subject );
-      CRM_Core_BAO_MessageTemplates::sendTemplate($sendTemplateParams);
+      CRM_Core_BAO_MessageTemplate::sendTemplate($sendTemplateParams);
     }
 
     if ($quickSave) {
