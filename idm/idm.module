@@ -1,7 +1,0 @@
-<?php
-
-function idm_views_query_alter(&$view, &$query) {
-  if ($view->name == 'orglist') {
-    $query->where[2]['conditions'][0]['field'] = 'civicrm_contact.organization_name'; 
- }
-}

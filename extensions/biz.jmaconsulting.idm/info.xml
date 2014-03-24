@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <extension key="biz.jmaconsulting.idm" type="module">
   <file>idm</file>
-  <name>Interactive Ontario</name>
-  <description>Interactive Ontario</description>
-  <license>AGPL-3.0</license>
+  <name>FIXME</name>
+  <description>FIXME</description>
+  <license>FIXME</license>
   <maintainer>
-    <author>JMA Consulting</author>
-    <email>joe.murray@jmaconsulting.biz</email>
+    <author>FIXME</author>
+    <email>FIXME@example.com</email>
   </maintainer>
   <releaseDate>2014-01-27</releaseDate>
   <version>1.0</version>
   <develStage>alpha</develStage>
   <compatibility>
-    <ver>4.3</ver>
+    <ver>4.2</ver>
   </compatibility>
   <comments>This is a new, undeveloped module</comments>
   <civix>
