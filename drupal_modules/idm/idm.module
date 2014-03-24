@@ -1,7 +1,10 @@
 <?php
 
 function idm_views_query_alter(&$view, &$query) {
-  if ($view->name == 'orglist') {
+  if ($view->name == 'orglist' || $view->name =='mode_directory') {
+    if ($view->name == 'orglist') {
+      $query->where[2]['conditions'][0]['field'] = 'civicrm_contact.organization_name';
+    }
     $query->where[2]['conditions'][0]['field'] = 'civicrm_contact.organization_name';
     unset($query->table_queue['civicrm_contact_civicrm_website'], $query->table_queue['civicrm_contact_civicrm_website_1']);
     unset($query->relationships['civicrm_contact_civicrm_website'], $query->relationships['civicrm_contact_civicrm_website_1']);
