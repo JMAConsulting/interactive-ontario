@@ -113,7 +113,6 @@ cj('#editrow-custom_20 table tr').each( function(key, value){
   }
 });
 
-
 // On load
 if (cj('#custom_3_Other').is(':checked'))
     cj('#editrow-custom_23').show();
@@ -135,10 +134,6 @@ if (cj("input[id='custom_15_Other']").is(':checked'))
     cj('#editrow-custom_32').show();
 else
     cj('#editrow-custom_32').hide();
-
-
-
-
 
 
 });
