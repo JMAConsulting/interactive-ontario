@@ -1,5 +1,0 @@
-name = Interactive Ontario Customizations
-version = 4.3
-package = CiviCRM
-core = 7.x
-php = 5.3
