@@ -1,5 +1,4 @@
 <?php
-define('SMART_GROUP', 'Claimed');
 
 require_once 'idm.civix.php';
 
@@ -74,21 +73,6 @@ function idm_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  */
 function idm_civicrm_managed(&$entities) {
   return _idm_civix_civicrm_managed($entities);
-}
-
-/**
- * Implementation of hook_civicrm_aclGroup
- */
-function idm_civicrm_aclGroup( $type, $contactID, $tableName, &$allGroups, &$currentGroups ) {
-  if ($tableName == 'civicrm_uf_group' && ($type == CRM_Core_Action::UPDATE)) {
-    $currentGroups = $allGroups;
-    $smartGroups = CRM_Contact_BAO_GroupContactCache::contactGroup($contactID);
-    $titles = explode(', ', $smartGroups['groupTitle']);
-    if (!in_array(SMART_GROUP, $titles)) {
-      unset($currentGroups[13]);
-    }
-    $currentGroups = array_keys($currentGroups);
-  }
 }
 
 
