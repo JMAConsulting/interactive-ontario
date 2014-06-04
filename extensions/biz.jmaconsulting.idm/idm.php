@@ -92,3 +92,10 @@ function idm_civicrm_links( $op, $objectName, $objectId, &$links ) {
     );
   }
 }
+
+function idm_civicrm_pageRun( &$page ) {
+  if ($page->getVar('_gid') == 13 || $page->getVar('_gid') == 14) {
+    $smarty = CRM_Core_Smarty::singleton();
+    $smarty->assign('listingURL', CRM_Utils_System::url('mode-directory'));
+  }
+}
